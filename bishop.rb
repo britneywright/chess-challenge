@@ -9,7 +9,7 @@ class Bishop
   end
 
   def move?(origin, destination, board)
-    if board[MAP_HASH.key(destination)] != nil && board[MAP_HASH.key(destination)].color == @color
+    if board.my_team? destination, @color
       return false
     end
     horizontal = (origin[0] - destination[0]  < 0 ? -1 : 1)
@@ -20,7 +20,7 @@ class Bishop
     until distance == 1 do
       y += horizontal
       x += vertical
-      if board[MAP_HASH.key([x,y])] != nil
+      if board[x, y]
         return false
       end
       distance -= 1
