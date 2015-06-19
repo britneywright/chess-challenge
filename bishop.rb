@@ -8,8 +8,7 @@ class Bishop
     @marker = "B"
   end
 
-  def move?(origin,destination,board)
-
+  def move?(origin, destination, board)
     if board[MAP_HASH.key(destination)] != nil && board[MAP_HASH.key(destination)].color == @color
       return false
     end
