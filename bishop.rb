@@ -2,14 +2,12 @@ require_relative 'board'
 require_relative 'diagonal'
 require 'pry'
 class Bishop
-include Diagonal
+  include Diagonal
 
   attr_reader :color
   def initialize(color)
-    
     @color = color
     @marker = "B"
-
   end
 
   def move?(origin,destination,board)
@@ -21,7 +19,6 @@ include Diagonal
       if board[destination] != nil && board[destination].color == @color
         return false
       end
-
       horizontal = ox - dx < 0 ? -1 : 1
       vertical = oy - dy < 0 ? -1 : 1
       distance = (ox - dx).abs
@@ -37,5 +34,4 @@ include Diagonal
     end
     return false  
   end
-
 end
