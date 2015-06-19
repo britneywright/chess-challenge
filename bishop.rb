@@ -2,7 +2,7 @@ require_relative 'bishop'
 require 'pry'
 class Bishop
 
-  attr_reader :color
+  attr_reader :color, :marker
   def initialize(color)
     @color = color
     @marker = "B"
