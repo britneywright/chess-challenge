@@ -12,6 +12,16 @@ RSpec.describe 'Board' do
     end
   end
 
+  it 'can convert chess space to internal coordinates (regardless of case)' do
+    expect(Board.intern "a8").to eq [0, 0]
+    expect(Board.intern "a1").to eq [7, 0]
+    expect(Board.intern "h8").to eq [0, 7]
+    expect(Board.intern "h1").to eq [7, 7]
+
+    expect(Board.intern "a8").to eq [0, 0]
+    expect(Board.intern "A8").to eq [0, 0]
+  end
+
   it 'raises an error if user attempts to access a nonexistent space' do
     expect { board['I1'] = Bishop.new('white') }.to raise_error KeyError
     expect { board['I1']                       }.to raise_error KeyError

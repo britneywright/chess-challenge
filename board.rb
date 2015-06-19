@@ -2,6 +2,12 @@ require_relative 'bishop'
 require 'pry'
 
 class Board
+  def self.intern(string_coords)
+    x = string_coords[0].upcase.ord - "A".ord
+    y = 8 - string_coords[1].to_i
+    [y, x]
+  end
+
   MAP_HASH = {A8: [0,0], B8: [0,1], C8: [0,2], D8: [0,3], E8: [0,4], F8: [0,5], G8: [0,6], H8: [0,7],
               A7: [1,0], B7: [1,1], C7: [1,2], D7: [1,3], E7: [1,4], F7: [1,5], G7: [1,6], H7: [1,7],
               A6: [2,0], B6: [2,1], C6: [2,2], D6: [2,3], E6: [2,4], F6: [2,5], G6: [2,6], H6: [2,7],
